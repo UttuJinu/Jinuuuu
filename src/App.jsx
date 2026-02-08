@@ -1,7 +1,8 @@
 import { useState, useCallback, useRef, useMemo } from 'react';
 import confetti from 'canvas-confetti';
 
-const AUDIO_SRC = '/images/videoplayback.mp3';
+const BASE = import.meta.env.BASE_URL;
+const AUDIO_SRC = `${BASE}images/videoplayback.mp3`;
 
 const GROWTH_PER_CLICK = 35;
 const FONT_GROWTH_PER_CLICK = 25;
@@ -11,13 +12,13 @@ const MAX_YES_BUTTON_HEIGHT = 100;
 const MAX_YES_FONT_SIZE = 28;
 
 const IMAGE_PATHS = [
-  '/images/image1.gif',
-  '/images/image2.gif',
-  '/images/image3.gif',
-  '/images/image4.gif',
-  '/images/image5.gif',
-  '/images/image6.gif',
-  '/images/image7.gif',
+  `${BASE}images/image1.gif`,
+  `${BASE}images/image2.gif`,
+  `${BASE}images/image3.gif`,
+  `${BASE}images/image4.gif`,
+  `${BASE}images/image5.gif`,
+  `${BASE}images/image6.gif`,
+  `${BASE}images/image7.gif`,
 ];
 
 const NO_BUTTON_MESSAGES = [
