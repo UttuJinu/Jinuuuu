@@ -21,24 +21,38 @@ A cute, interactive web page to ask someone to be your Valentine. Features playf
 1. Clone the repository:
    ```bash
    git clone https://github.com/CodeKageHQ/Ask-out-your-Valentine.git
+   cd Ask-out-your-Valentine
    ```
-2. Open `index.html` in your browser.
+2. Install dependencies and run the dev server:
+   ```bash
+   npm install
+   npm run dev
+   ```
+3. Open the URL shown in the terminal (e.g. `http://localhost:5173`).
 
-That's it -- no build step, no dependencies to install. Tailwind CSS and canvas-confetti are loaded via CDN.
+**Build for production:** `npm run build` → output in `dist/`. Preview with `npm run preview`.
 
 ## Project Structure
 
 ```
 Ask-out-your-Valentine/
-├── images/
-│   ├── image1.gif    # Default greeting
-│   ├── image2.gif    # After 1st "No"
-│   ├── image3.gif    # After 2nd "No"
-│   ├── image4.gif    # After 3rd "No"
-│   ├── image5.gif    # After 4th "No"
-│   ├── image6.gif    # After 5th "No"
-│   └── image7.gif    # "Yes" celebration
-├── index.html        # The entire app (HTML + CSS + JS)
+├── public/
+│   └── images/
+│       ├── image1.gif    # Default greeting
+│       ├── image2.gif    # After 1st "No"
+│       ├── image3.gif    # After 2nd "No"
+│       ├── image4.gif    # After 3rd "No"
+│       ├── image5.gif    # After 4th "No"
+│       ├── image6.gif    # After 5th "No"
+│       └── image7.gif    # "Yes" celebration
+├── src/
+│   ├── App.jsx          # Main Valentine component
+│   ├── main.jsx         # React entry
+│   └── index.css        # Tailwind + custom styles
+├── index.html           # Vite entry
+├── package.json
+├── vite.config.js
+├── tailwind.config.js
 ├── LICENSE
 └── README.md
 ```
@@ -49,18 +63,18 @@ Want to make it your own? Here are some easy tweaks inside `index.html`:
 
 | What | Where | How |
 |------|-------|-----|
-| GIF images | `images/` folder | Replace the GIFs with your own (keep the same filenames) |
-| "No" button messages | `NO_BUTTON_MESSAGES` array | Edit the strings to say whatever you like |
-| Button growth speed | `GROWTH_PER_CLICK` / `FONT_GROWTH_PER_CLICK` constants | Lower the numbers for subtler growth |
-| Confetti colors | `colors` array in the `yesButton` click handler | Swap in any hex color codes |
-| Background gradient | `.gradient-background` in `<style>` | Change the hex colors |
+| GIF images | `public/images/` folder | Replace the GIFs with your own (keep the same filenames) |
+| "No" button messages | `NO_BUTTON_MESSAGES` in `src/App.jsx` | Edit the strings to say whatever you like |
+| Button growth speed | `GROWTH_PER_CLICK` / `FONT_GROWTH_PER_CLICK` in `src/App.jsx` | Lower the numbers for subtler growth |
+| Confetti colors | `colors` in `runHeartConfetti()` in `src/App.jsx` | Swap in any hex color codes |
+| Background gradient | `.gradient-background` in `src/index.css` | Change the hex colors |
 
 ## Technologies
 
-- **HTML5** -- semantic markup with `<main>` and `<section>`
-- **Tailwind CSS** -- utility-first styling via CDN
-- **JavaScript** -- vanilla JS, no frameworks
-- **canvas-confetti** -- lightweight confetti animation library
+- **React 18** — UI and state
+- **Vite** — build tool and dev server
+- **Tailwind CSS** — utility-first styling
+- **canvas-confetti** — heart-shaped confetti on "Yes"
 
 ## Contributing
 
