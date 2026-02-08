@@ -85,3 +85,4 @@ Contributions are welcome! Whether it's new GIF suggestions, design tweaks, or c
 Open source under the [MIT License](LICENSE).
 
 Happy Valentine's Day! ❤️
+# Jinuuuu
